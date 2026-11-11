@@ -1,0 +1,16 @@
+# Wheels pin_deps.py copies into a sandbox by task date ($PIN_EXTRA_WHEELS): every Pygments release in its DATED
+# table. One requirement per line; bootstrap.sh downloads them one at a time (several versions of one name).
+pygments==2.14.0 --hash=sha256:fa7bd7bd2771287c0de303af8bfdfc731f51bd2c6a47ab69d117138893b82717
+pygments==2.15.0 --hash=sha256:77a3299119af881904cd5ecd1ac6a66214b6e9bed1f2db16993b54adede64094
+pygments==2.15.1 --hash=sha256:db2db3deb4b4179f399a09054b023b6a586b76499d36965813c71aa8ed7b5fd1
+pygments==2.16.0 --hash=sha256:90e046f72a58b65edd7e6bd99926ffa1b9d19e23db166905046bea0069c0894d
+pygments==2.16.1 --hash=sha256:13fc09fa63bc8d8671a6d247e1eb303c4b343eaee81d861f3404db2935653692
+pygments==2.17.0 --hash=sha256:cd0c46944b2551af02ecc15961050182ea120d3895000e2676160820f3421527
+pygments==2.17.1 --hash=sha256:1b37f1b1e1bff2af52ecaf28cc601e2ef7077000b227a0675da25aef85784bc4
+pygments==2.17.2 --hash=sha256:b27c2826c47d0f3219f29554824c30c5e8945175d888647acd804ddd04af846c
+pygments==2.18.0 --hash=sha256:b8e6aca0523f3ab76fee51799c488e38782ac06eafcf95e7ba832985c8e7b13a
+pygments==2.19.0 --hash=sha256:4755e6e64d22161d5b61432c0600c923c5927214e7c956e31c23923c89251a9b
+pygments==2.19.1 --hash=sha256:9ea1544ad55cecf4b8242fab6dd35a93bbce657034b0611ee383099054ab6d8c
+pygments==2.19.2 --hash=sha256:86540386c03d588bb81d44bc3928634ff26449851e99741617ecb9037ee5ec0b
+pygments==2.20.0 --hash=sha256:81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176
+pygments==2.21.0 --hash=sha256:2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9

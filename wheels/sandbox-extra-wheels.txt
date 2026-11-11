@@ -1,0 +1,26 @@
+# E1 option C (docs/experiments/e0-gold-verify.md): wheels added to the HOST wheel cache that swegemma unpacks into
+# every docker sandbox (EvalConfig.wheels_dir, default <data>/wheels). Only names NOT already in the organizer wheels/
+# (names already there keep the organizer's versions). Resolved 2026-10-21 by pip 26.2.1 in python@sha256:7c61056e...
+# (cp313): the closure of typing-inspection>=0.4.2, pytest-httpbin==2.1.0 and httpbin~=0.10.0 (task pins), plus every
+# name an offline dry-run install of each cached wheel could not find, iterated until none were missing.
+# inline-snapshot (and its asttokens, executing) is deliberately absent: as a pytest plugin it imports rich at startup,
+# shadowing the workspace's rich (rich_3777 fails with it, passes without). pytest-httpbin is installed in the image
+# by bootstrap.sh because swegemma never injects it.
+annotated_doc==0.0.5 --hash=sha256:117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101
+attrs==26.1.0 --hash=sha256:c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309
+blinker==1.9.0 --hash=sha256:ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc
+brotlicffi==1.2.0.2 --hash=sha256:22916101de0e7ff535f2edf54b52a85591853b8ae9a98737643defdd3c063a3a
+cffi==2.1.1 --hash=sha256:a931079504ecc49efed7744c476a5c343a92fabf66dec2db95edb1b2fdc770e2
+decorator==5.3.1 --hash=sha256:f47fe6fdbd2edd623ecfe36875d37aba411624e2670dd395dddae1358689bb3c
+greenlet==3.5.6 --hash=sha256:f98e8215e172f567ce80eeaed9107fb4d32b6c44f26983d9b8334658136a205a
+h11==0.16.0 --hash=sha256:63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86
+httpbin==0.10.4 --hash=sha256:71862093f371c3a39cfcdcd2f073aaf610b6433f9d4c0130248e676453fca65d
+pathspec==1.1.1 --hash=sha256:a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189
+py==1.11.0 --hash=sha256:607c53218732647dff4acdfcd50cb62615cedf612e72d1724fb1a0cc6405b378
+pycparser==3.11 --hash=sha256:51d5a8ba2be0bbe440b99d2112604c95bbbc3c2748a64260186c541e1729cd80
+pytest_httpbin==2.1.0 --hash=sha256:b3bf7346cc2ad231447189cd85b458e341056684a7a69d69533dd29692209cdd
+shellingham==1.5.4 --hash=sha256:7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686
+six==1.17.0 --hash=sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274
+toml==0.10.2 --hash=sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b
+trove_classifiers==2026.9.21.13 --hash=sha256:8b1ff4f9c191b1040b71c37f1e445ab99732911e3cd91de52838453a854d7a17
+typing_inspection==0.4.4 --hash=sha256:65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147

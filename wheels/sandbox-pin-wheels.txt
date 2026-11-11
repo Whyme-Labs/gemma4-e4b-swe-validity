@@ -1,0 +1,12 @@
+# Research-only teacher-data environment (local_lab/pin_deps.py, docs/experiments/e0-gold-verify.md "Pinned environment").
+# Added on top of the C3 cache (organizer wheels + sandbox-extra-wheels.txt) into a SEPARATE host cache, used only by
+# arms with E1_PIN=1; scorer-parity arms keep the C3 cache. Each name was missing from the C3 cache and needed by a
+# public task's tests: python-multipart (FastAPI Form), inline-snapshot + asttokens + executing, dirty-equals, ujson,
+# orjson (FastAPI test imports). Every listed hash is a cp313 x86_64 glibc or pure wheel of that version.
+python-multipart==0.0.20 --hash=sha256:8a62d3a8335e06589fe01f2a3e178cdcc632f3fbe0d492ad9ee0ec35aab1f104
+inline-snapshot==0.36.2 --hash=sha256:2c7980bee5149ecfffae3fea2e6670e56d0cd94fa975e7bd8517c4c984ce6e5c
+asttokens==3.0.2 --hash=sha256:9da13157f5b28becde0bd374fc677dcd3c290614264eff096f167c469cd9f933
+executing==2.3.0 --hash=sha256:736e859c9f8701f11fcf516856f26f562e04776387824b43a35a1dfe21c84122
+dirty-equals==0.11 --hash=sha256:b1d7093273fc2f9be12f443a8ead954ef6daaf6746fd42ef3a5616433ee85286
+ujson==6.1.0 --hash=sha256:d2796205fa75411654b7f28832c982707b8192e8849d4fc4e41667b8fc7ee9c7 --hash=sha256:4b90c4be08dd2d0d59f61ff77204c3da0b88c582c3da944915985c35fe683e4c --hash=sha256:b6f56bd474e726627b25d245c6c7c77f74c0cc36de6c08a49036b641936735e9
+orjson==3.13.0 --hash=sha256:64e8f345048d988c8b68d3882e5d41028fca1219a9939b32e4a77be34c8ae8e3 --hash=sha256:cbed5f4c4b88d94bcc36115f4c3bb3aa25da1563a5c3328aa3acebce2b083040
