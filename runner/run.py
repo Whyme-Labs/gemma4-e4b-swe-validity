@@ -240,7 +240,13 @@ config = EvalConfig(
                                                     event_retention_size=5),
     graph_dir=str(DATA_DIR / "graphs"), embeddings_dir=str(DATA_DIR / "embeddings"), wheels_dir=Path(os.environ.get("E1_WHEELS_DIR") or DATA_DIR / "wheels"),
     verbose=False)
-log("eval_config", sandbox=SANDBOX, pin=os.environ.get("E1_PIN") == "1", wheelsDir=str(config.wheels_dir), **{k: ev.get(k) for k in ("timeout_seconds", "max_tool_calls", "max_time_minutes", "max_turns")})
+# The harness caches the unpacked wheels as $TMPDIR/swegemma_sp_cache_v8/sp_base.tar, keyed by name only, so a later
+# run on the same box reuses an earlier run's wheels (E4-G2: sft4's C3 eval got the pinned arm's site-packages and
+# its verifier passed tasks whatever the patch). Key the temp dir on the wheel set.
+import tempfile
+wheel_key = hashlib.sha256("\n".join(f"{w.name} {w.stat().st_size}" for w in sorted(config.wheels_dir.glob("*.whl"))).encode()).hexdigest()[:12]
+tempfile.tempdir = f"/tmp/e1-wheels-{wheel_key}"; os.makedirs(tempfile.tempdir, exist_ok=True)
+log("eval_config", sandbox=SANDBOX, pin=os.environ.get("E1_PIN") == "1", wheelsDir=str(config.wheels_dir), wheelKey=wheel_key, **{k: ev.get(k) for k in ("timeout_seconds", "max_tool_calls", "max_time_minutes", "max_turns")})
 import dataclasses
 evaluators = [Evaluator(config if SAMPLES == 1 else dataclasses.replace(
     config, results_dir=OUT / "results" / f"s{k}", **({"models": registry(9000 + k)} if PROXY_LOG else {})))
